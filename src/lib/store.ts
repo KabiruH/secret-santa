@@ -5,8 +5,14 @@ import { createBoard, type DrawState } from "./draw";
  * Upstash Redis in production. Without its env vars (local dev), state lives in memory
  * and resets when the dev server restarts.
  */
-const url = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
-const token = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
+const url =
+  process.env.UPSTASH_REDIS_REST_KV_REST_API_URL ??
+  process.env.UPSTASH_REDIS_REST_URL ??
+  process.env.KV_REST_API_URL;
+const token =
+  process.env.UPSTASH_REDIS_REST_KV_REST_API_TOKEN ??
+  process.env.UPSTASH_REDIS_REST_TOKEN ??
+  process.env.KV_REST_API_TOKEN;
 const redis = url && token ? new Redis({ url, token }) : null;
 
 const STATE_KEY = "santa:state";

@@ -289,7 +289,7 @@ export function SantaApp() {
             </div>
             <div className="rounded-2xl bg-cream/5 p-4 ring-1 ring-cream/10">
               <dt className="text-xs font-bold uppercase tracking-wider text-gold">Budget</dt>
-              <dd className="mt-1 font-semibold">{board?.event.budget}. Max. Not KES2000 worth of optimism and financial gymnastics.</dd>
+              <dd className="mt-1 font-semibold">{board?.event.budget}. Max. Not KES 2,000 worth of optimism and financial gymnastics.</dd>
             </div>
           </dl>
           <p className="mt-8 text-sm text-cream/60">

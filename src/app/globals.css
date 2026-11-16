@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night: #0e2a20;
+  --color-pine: #16392b;
+  --color-cream: #fbf3e4;
+  --color-gold: #f5c542;
+  --color-berry: #e8475f;
+
+  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --font-sans: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+
+  --animate-rise: rise 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  --animate-pop: pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.4) both;
+  --animate-bob: bob 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 0.5s ease-in-out infinite;
+  --animate-shake: shake 0.9s ease-in-out infinite;
+  --animate-fall: fall 3s linear both;
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes pop {
+    0% { opacity: 0; transform: scale(0.4) rotate(-8deg); }
+    100% { opacity: 1; transform: none; }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-6px) rotate(3deg); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-8deg) scale(1.08); }
+    50% { transform: rotate(8deg) scale(1.08); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: rotate(0) scale(1); }
+    15% { transform: rotate(-14deg) scale(1.05); }
+    30% { transform: rotate(12deg) scale(1.1); }
+    45% { transform: rotate(-10deg) scale(1.05); }
+    60% { transform: rotate(8deg) scale(1.12); }
+    80% { transform: rotate(-4deg) scale(1.06); }
+  }
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0.2; }
+  }
+}
+
+html {
+  background: var(--color-night);
+}
+
+body {
+  color: var(--color-cream);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1f5a40 0%, transparent 60%),
+    radial-gradient(2px 2px at 20% 30%, #fbf3e455 50%, transparent 51%),
+    radial-gradient(2px 2px at 70% 20%, #fbf3e444 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 40% 70%, #fbf3e433 50%, transparent 51%),
+    radial-gradient(2px 2px at 85% 60%, #fbf3e444 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 10% 85%, #fbf3e433 50%, transparent 51%),
+    var(--color-night);
+  background-attachment: fixed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
